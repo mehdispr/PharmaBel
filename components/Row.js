@@ -79,22 +79,18 @@ export default function Row(resource) {
                     <TableCell>{row.resourceType}</TableCell>
                     <TableCell>{row.text.status}</TableCell>
                     <TableCell>{row.dispenser.display}</TableCell>
-                    <TableCell>{row.authorizingPrescription.map(({display})=>(display==="Prescription"?(<CheckIcon/>):(<ClearIcon/>)))}</TableCell>
+                    <TableCell>{row.authorizingPrescription.map(({display})=>(display==="Prescription"?(<CheckIcon key={row.id}/>):(<ClearIcon/>)))}</TableCell>
                     <TableCell>{row.quantity.value}</TableCell>
                     <TableCell>{row.whenHandedOver}</TableCell>
                     <TableCell>{row.dosageInstruction.map(({text})=>(text))}</TableCell>
 
 
                     <TableCell><CreateIcon onClick={handleOpenMod} className='cursor-pointer hover:text-green-400'/><DeleteIcon onClick={handleClickOpenDel} className='cursor-pointer hover:text-red-500'/></TableCell>
-                        <Modal
-                            open={openMod}
-                            onClose={handleCloseMod}
-                            aria-labelledby="modal-modal-title"
-                            aria-describedby="modal-modal-description"
-                        >
-                           <Form key={row.id} cols={row} />
-                        </Modal>
-                        
+                    <Modal open={openMod} onClose={handleCloseMod} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description" >
+                      <Form key={row.id} cols={row} />
+                    </Modal>
+                  </TableBody>
+                </Table>      
                    <Dialog open={openDel} onClose={handleCloseDel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <DialogTitle id="alert-dialog-title"></DialogTitle>
                         <DialogContent>
@@ -108,8 +104,7 @@ export default function Row(resource) {
                         </DialogActions>
                     </Dialog>
 
-                  </TableBody>
-                </Table>
+                  
               </Box>
             </Collapse>
           </TableCell>
