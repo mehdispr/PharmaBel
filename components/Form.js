@@ -52,7 +52,7 @@ function Form({cols}) {
 
                     <div className="relative pt-4">
                         <label for="name" className="text-base leading-7 text-blueGray-500">Quantity</label>
-                        <input contentEditable={false} disabled={true}  type="number" defaultValue={cols.quantity.defaultValue} className="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out 
+                        <input contentEditable={false} disabled={true}  type="number" defaultValue={cols.quantity.value} className="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out 
         transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white 
         focus:outline-none focus:ring-2 ring-offset-current ring-offset-2;"/>
                     </div>
